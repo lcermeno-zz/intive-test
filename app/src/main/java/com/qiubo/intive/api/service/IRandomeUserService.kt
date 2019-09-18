@@ -6,7 +6,7 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface RandomeUserService {
+interface IRandomeUserService {
     @GET("")
     fun getUsers(@Query(Constants.LIMIT_KEY) limit: Int = Constants.PAGE_LIMIT,
                   @Query(Constants.PAGE_KEY) page: Int): Observable<RandomUserResponse>
