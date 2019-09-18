@@ -7,7 +7,8 @@ data class User(
     val picture: Picture,
     val gender: String,
     val email: String,
-    val nat: String
+    val nat: String,
+    var size: Float = 0f
 )
 
 data class Name(val title: String, val first: String, val last: String)
