@@ -3,6 +3,7 @@ package com.qiubo.intive.presenter
 import android.annotation.SuppressLint
 import android.util.Log
 import com.qiubo.intive.entities.User
+import com.qiubo.intive.misc.Constants
 import com.qiubo.intive.model.domain.GetUserUseCase
 import com.qiubo.intive.view.IMainView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -39,7 +40,7 @@ class MainPresenter(
     }
 
     override fun loadMoreItems(isBottom: Boolean) {
-        if (!mLoading) {
+        if (isBottom && !mLoading && mPage != Constants.INDEX_NOT_FOUND) {
             mPage++
             val list = mutableListOf<User>()
             requestData(list) { mView?.onLoadMore(list) }
@@ -70,6 +71,7 @@ class MainPresenter(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 Log.d(TAG, "Received album list with size: ${it.results.size}")
+                if (it.results.isEmpty()) mPage = Constants.INDEX_NOT_FOUND
                 list.addAll(it.results)
                 function(list)
                 mLoading = false
