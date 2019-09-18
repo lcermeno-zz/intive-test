@@ -40,10 +40,6 @@ ext {
     materialVersion = '1.0.0'
     legacySupportVersion = '1.0.0'
 
-    // photoview
-
-    photoViewVersion = '2.3.0'
-
     // retrofit
 
     retrofitVersion = '2.6.1'
@@ -56,6 +52,7 @@ ext {
     // glide
 
     glideVersion = '4.9.0'
+    glideTransformationsVersion = '4.1.0'
 
     // Testing
 
