@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IMainView, UserAdapter.IOnClickListener {
 
-    private lateinit var mPresenter : IMainPresenter
+    private lateinit var mPresenter: IMainPresenter
     private val mAdapter by lazy { UserAdapter(mutableListOf(), this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +41,12 @@ class MainActivity : AppCompatActivity(), IMainView, UserAdapter.IOnClickListene
         val width = ScreenHelper.getScreenRealWidth(this)
 
         mPresenter = MainPresenter(this, GetUserUseCase(), width)
-        mPresenter.getUsers()
+        mPresenter.onCreate()
+    }
+
+    override fun onDestroy() {
+        mPresenter.onDestroy()
+        super.onDestroy()
     }
 
     override fun onGetItems(items: List<User>) {

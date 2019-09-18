@@ -14,6 +14,15 @@ class MainPresenter(
     private val width: Int
 ) :
     IMainPresenter {
+
+    override fun onCreate() {
+        getUsers()
+    }
+
+    override fun onDestroy() {
+        mView = null
+    }
+
     private var mPage = 1
     private var mLoading = false
 

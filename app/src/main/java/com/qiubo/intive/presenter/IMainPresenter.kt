@@ -1,6 +1,6 @@
 package com.qiubo.intive.presenter
 
-interface IMainPresenter {
+interface IMainPresenter : IOnCreate, IOnDestroy {
     fun getUsers()
     fun loadMoreItems(isBottom: Boolean)
 }
