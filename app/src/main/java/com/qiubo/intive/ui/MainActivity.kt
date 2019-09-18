@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity(), IMainView, UserAdapter.IOnClickListene
 
         mainRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                mainRefresh.isRefreshing = true
                 mPresenter.loadMoreItems(!mainRecycler.canScrollVertically(1))
             }
         })
