@@ -30,7 +30,7 @@ class UserViewHolder(
         }
         Glide
             .with(containerView.context)
-            .load(item.picture.thumbnail)
+            .load(item.picture.large)
             .transition(withCrossFade(factory))
             .into(photoImg)
     }
