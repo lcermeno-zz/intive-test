@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_grid_item_margin">1dp</dimen>
+    <dimen name="detail_picture_size">120dp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="detail_picture_radius">100dp</dimen>
+    <dimen name="detail_bg_size">200dp</dimen>
+    <dimen name="detail_picture_border">1dp</dimen>
+    <dimen name="half_standard_margin">8dp</dimen>
+    <dimen name="detail_cardview_height">80dp</dimen>
 </resources>

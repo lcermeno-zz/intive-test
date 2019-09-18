@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".ui.DetailActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/detail_bg"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/detail_bg_size"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        android:transitionName="transitionPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher"
+        tools:targetApi="lollipop" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/detail_picture"
+        android:layout_width="@dimen/detail_picture_size"
+        android:layout_height="@dimen/detail_picture_size"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/detail_bg"
+        app:layout_constraintEnd_toEndOf="@id/detail_bg"
+        app:layout_constraintStart_toStartOf="@id/detail_bg"
+        app:layout_constraintTop_toTopOf="@id/detail_bg"
+        tools:src="@mipmap/ic_launcher"
+        tools:targetApi="lollipop" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_username_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_cardview_height"
+        android:layout_margin="@dimen/standard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_margin"
+                app:srcCompat="@drawable/ic_verified_user_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detail_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:text="info@intive.com" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_name_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_cardview_height"
+        android:layout_margin="@dimen/standard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_username_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_margin"
+                app:srcCompat="@drawable/ic_person_black_36dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:text="info@intive.com" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detail_email_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_cardview_height"
+        android:layout_margin="@dimen/standard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_name_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_margin"
+                app:srcCompat="@drawable/ic_email_black_24dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detail_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:text="info@intive.com" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
