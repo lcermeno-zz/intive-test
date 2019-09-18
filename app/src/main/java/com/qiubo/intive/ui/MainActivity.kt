@@ -1,14 +1,18 @@
 package com.qiubo.intive.ui
 
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.qiubo.intive.R
 import com.qiubo.intive.entities.User
+import com.qiubo.intive.misc.Constants
 import com.qiubo.intive.misc.ScreenHelper
 import com.qiubo.intive.model.domain.GetUserUseCase
 import com.qiubo.intive.presenter.IMainPresenter
@@ -32,6 +36,7 @@ class MainActivity : AppCompatActivity(), IMainView, UserAdapter.IOnClickListene
 
         mainRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                mainRefresh.isRefreshing = true
                 mPresenter.loadMoreItems(!mainRecycler.canScrollVertically(1))
             }
         })
@@ -55,14 +60,25 @@ class MainActivity : AppCompatActivity(), IMainView, UserAdapter.IOnClickListene
     }
 
     override fun onLoadMore(items: MutableList<User>) {
+        mainRefresh.isRefreshing = false
         mAdapter.loadMore(items)
     }
 
     override fun onClickItem(item: User, pair: Pair<View, String>) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(Constants.ITEM_KEY, item)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
 
+        val optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pair)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, optionsCompat.toBundle())
+        else
+            startActivity(intent)
     }
 
     override fun onError(message: String) {
+        mainRefresh.isRefreshing = false
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
