@@ -1,4 +1,4 @@
-package com.qiubo.initive
+package com.qiubo.intive
 
 import org.junit.Test
 

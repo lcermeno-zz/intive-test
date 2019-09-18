@@ -1,4 +1,4 @@
-package com.qiubo.initive
+package com.qiubo.intive
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
