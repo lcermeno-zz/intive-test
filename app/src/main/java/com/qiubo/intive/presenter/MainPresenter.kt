@@ -76,6 +76,7 @@ class MainPresenter(
                 function(list)
                 mLoading = false
             }, {
+                mLoading = false
                 Log.e(TAG, it.message)
                 it.printStackTrace()
                 it.message?.let { message -> mView?.onError(message) }
